@@ -1,0 +1,8 @@
+<div id="color-picker">
+<div class="wrapper-dropdown">
+	<span @click="toggleDropdown()" v-html="selector"></span>
+	<ul class="dropdown" v-show="active">
+		<li v-for="color in colors" @click="setColor(color.hex, color.name)"><span :style="{background: color.hex}"></span> {{color.name}}</li>
+	</ul>
+</div>
+</div>

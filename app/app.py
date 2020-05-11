@@ -1,19 +1,23 @@
 #
 # Libraries
 #
+import os
 from builtins import len, str
 
 import pymongo
 from bson import json_util
-from flask import Flask, request, render_template, flash
+from flask import Flask, request, render_template, flash, send_file
+from flask_cors import CORS
 from flask_paginate import Pagination, get_page_args
 
 # create app instance
 from flask_restful.representations import json
 from pymongo import MongoClient
 
-app = Flask(__name__)
 
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__)
+CORS(app)
 
 #
 # Routes
@@ -27,7 +31,7 @@ def home():
 
         # create db client
         db = client.stylesearch
-        db.Style.create_index([('$**', 'text')])
+        db.TestStyle.create_index([('$**', 'text')])
        # db.test.create_index(
         #    {
          #       "Garment Layer" : "text",
@@ -36,7 +40,7 @@ def home():
  #           }
   #      )
 
-        search_results = db.Style.find({'$text': {'$search': request.args.get('search')}})
+        search_results = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
 
 
         for entry in search_results:
@@ -46,7 +50,7 @@ def home():
         client.close()
 
     return render_template('search.html')
-
+   # return render_template('pink.html')
 
 @app.route('/search_results')
 def search_results():
@@ -56,7 +60,7 @@ def search_results():
 
         # create db client
         db = client.stylesearch
-        db.Style.create_index([('$**', 'text')])
+        db.TestStyle.create_index([('$**', 'text')])
       #  db.test.create_index(
        #     {
         #        'Garment Layer': 'text',
@@ -64,32 +68,24 @@ def search_results():
           #  }
         #)
 
-        query = db.Style.find({'$text': {'$search': request.args.get('search')}})
+        query = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
+        ids = query.distinct("ID")
         search_results = []
 
-        for doc in query:
+        for doc in ids:
             search_results.append(doc)
+
 
         # close connection
         client.close()
 
 
 
-        # automatic pagination handling
-       # total = len(search_results)
-        #page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
-        #pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
-#
-        return str(search_results)
+        return render_template('search_results2.html', search_results=search_results)
 
+        #return render_template('imageTemplate.html', value=search_results[0])
+               #return send_file('static/images/' + search_results + '.jpeg', mimetype='image/jpeg')
 
-       # return render_template('search_results.html',
-     #                           search_results=search_results, len=len)
-   #                            search_results=search_results[offset: offset + per_page])
-   #                            page=page,
-    #                           per_page=per_page,
-     #                          pagination=pagination,
-      #                         len=len)
 
 
 @app.route("/cols", methods=['POST', 'GET'])
@@ -100,11 +96,20 @@ def showColor():
     db = client.stylesearch
     # dbCollection = db.Style
     colourData = []
-    for x in db.Style.find({"Colour" : "lavender"}):
+    for x in db.TestStyle.find({"Colour" : "lightpink"}):
         colourData.append(x)
+
 
     return json.dumps(colourData, indent=4, default=json_util.default)
 
+@app.route("/image", methods=['POST', 'GET'])
+def Image():
+
+    target = os.path.join(APP_ROOT, 'static/')
+    full_filename = 'static/images/1.jpeg'
+    print(full_filename)
+    print(target)
+    return render_template("image.html", user_image=full_filename)
 
 
 
