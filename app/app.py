@@ -23,6 +23,7 @@ CORS(app)
 # Routes
 #
 
+
 @app.route('/')
 def home():
     if 'search' in request.args:
@@ -49,8 +50,8 @@ def home():
         # close connection
         client.close()
 
-    return render_template('search.html')
-   # return render_template('pink.html')
+    #return render_template('search.html')
+    return render_template('testingJune.html')
 
 @app.route('/search_results')
 def search_results():
@@ -71,6 +72,7 @@ def search_results():
         query = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
         ids = query.distinct("ID")
         search_results = []
+
 
         for doc in ids:
             search_results.append(doc)
@@ -101,6 +103,19 @@ def showColor():
 
 
     return json.dumps(colourData, indent=4, default=json_util.default)
+
+@app.route("/keywords", methods=['POST', 'GET'])
+def showKeywords():
+    client = MongoClient(
+        "mongodb://admin:admin@cluster0-shard-00-00-zgcvy.mongodb.net:27017,cluster0-shard-00-01-zgcvy.mongodb.net:27017,cluster0-shard-00-02-zgcvy.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority")
+    db = client.stylesearch
+    # dbCollection = db.Style
+    showKeywords = []
+    for x in db.TestStyle.find({}, {'Colour' : 0, 'ID' : 0, "_id":0, 'Garment Layer':0}):
+        showKeywords.append(x)
+
+    return json.dumps(showKeywords, indent=4, default=json_util.default)
+
 
 @app.route("/image", methods=['POST', 'GET'])
 def Image():

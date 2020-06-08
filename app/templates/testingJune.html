@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="col">
+
+
+    <div class="col mt-5">
+      <img src="{{url_for('static', filename='./images/logo.png')}}" class="mx-auto d-block" style="width: 50%; height: 50%">
+
+    </div>
+
+
+    <form class="mt-5" name="search" action="/search_results">
+      <div class="col-6 mx-auto input-group">
+        <input type="text" class="form-control" name="search" placeholder="search...">
+        <button type="submit" class="btn btn-success">Search</button>
+      </div>
+    </form>
+  </div>
+
+<br><br>
+
+<form action="/cols">
+    <div class="col mt-5">
+<label for="search"> Choose a colour:</label> </blockquote>
+
+<select id="search" name="search">
+  <option style="background-color:white" value="white" action="/cols">White</option>
+    <option style="background-color:snow" value="snow" action="/cols">Snow</option>
+    <option style="background-color:whitesmoke" value="whitesmoke" action="/cols">White Smoke</option>
+    <option style="background-color:gainsboro" value="gainsboro" action="/cols">Gainsboro</option>
+    <option style="background-color:lightgray" value="lightgray" action="/cols">Light Grey</option>
+    <option style="background-color:silver" value="silver" action="/cols">Silver</option>
+    <option style="background-color:darkgray" value="darkgray" action="/cols">Dark Grey</option>
+    <option style="background-color:gray" value="gray" action="/cols">Gray</option>
+    <option style="background-color:dimgray" value="dimgray" action="/cols">Dim Grey</option>
+    <option style="color:silver; background-color:black" value="black" action="/cols">Black</option>
+     <option style="background-color:rosybrown" value="rosybrown" action="/cols">Rosy Brown</option>
+     <option style="background-color:lightcoral" value="lightcoral" action="/cols">Light Coral</option>
+     <option style="background-color:indianred" value="indianred" action="/cols">Indian Red</option>
+     <option style="background-color:brown" value="brown" action="/cols">Brown</option>
+     <option style="background-color:firebrick" value="firebrick" action="/cols">Fire Brick</option>
+     <option style="background-color:maroon" value="maroon" action="/cols">Maroon</option>
+     <option style="background-color:darkred" value="darkred" action="/cols">Dark Red</option>
+     <option style="background-color:red" value="red" action="/cols">Red</option>
+     <option style="background-color:salmon" value="salmon" action="/cols">Salmon</option>
+     <option style="background-color:tomato" value="tomato" action="/cols">Tomato</option>
+     <option style="background-color:darksalmon" value="darksalmon" action="/cols">Dark Salmon</option>
+     <option style="background-color:coral" value="coral" action="/cols">Coral</option>
+     <option style="background-color:orangered" value="orangered" action="/cols">Orange Red</option>
+     <option style="background-color:lightsalmon" value="lightsalmon" action="/cols">Light Salmon</option>
+    <option style="background-color:mistyrose" value="mistyrose" action="/cols">Misty Rose</option>
+    <option style="background-color:sienna" value="sienna" action="/cols">Sienna</option>
+    <option style="background-color:seashell" value="seashell" action="/cols">Seashell</option>
+    <option style="background-color:chocolate" value="chocolate" action="/cols">Chocolate</option>
+
+</select>
+
+<input type="submit" value="Submit" formaction="/search_results?search=">
+    </div>
+</form>
+
+    <div class="col mt-5">
+<form action="/cols">
+<label for="search">Choose a style preference:</label>
+
+<select id="style" name="search">
+    <option style="background-color:white" value="urban" action="/cols">Urban</option>
+    <option style="background-color:white" value="street,streetstyle" action="/cols">Street</option>
+    <option style="background-color:white" value="vintage" action="/cols">Vintage</option>
+    <option style="background-color:white" value="retro" action="/cols">Retro</option>
+    <option style="background-color:white" value="alternative" action="/cols">Alternative</option>
+    <option style="background-color:white" value="emo" action="/cols">Emo</option>
+    <option style="background-color:white" value="formal" action="/cols">Formal</option>
+    <option style="background-color:white" value="dinner" action="/cols">Dinner</option>
+    <option style="background-color:white" value="grunge" action="/cols">Grunge</option>
+    <option style="background-color:white" value="dinner" action="/cols">Gothic</option>
+</select>
+
+<input type="submit" value="Submit" formaction="/search_results?search=">
+    </div>
+</form>
+
+{% endblock %}
