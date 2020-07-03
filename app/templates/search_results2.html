@@ -1,9 +1,18 @@
+ {% for i in showKeywords%}
+   <form method="GET" action="/keywords">
 
-{% for i in search_results %}
-   <form method="GET" action="/showimage">
-    <img src="static/images/{{ i }}.jpeg" alt="User Image" width="150" height="170">
+
+
+       <p> {{ i }}  </p>
+       <p> </p>
+
+
+            <img src="static/images/{{loop.index}}.jpeg" alt="User Image" width="150" height="170">
+
+
+
 {% endfor %}
-   </form>
+
 
 
 

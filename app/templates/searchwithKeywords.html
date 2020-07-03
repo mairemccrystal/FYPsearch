@@ -1,0 +1,19 @@
+
+{% for i in search_results %}
+   <form method="GET" action="/showimage">
+    <img src="static/images/{{ imageID }}.jpeg" alt="User Image" width="150" height="170">
+
+      <form class="mt-5" name="keywords" action="/keywords">
+          <p> i=showKeywords
+
+               <form method="GET" action="/allKeywords">
+           <p> {{ showKeywords }} </p>
+
+       </form>
+
+
+{% endfor %}
+   </form>
+
+
+
