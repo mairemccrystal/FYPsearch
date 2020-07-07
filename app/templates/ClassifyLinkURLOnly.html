@@ -1,0 +1,17 @@
+<center>
+
+ <div class="col">
+
+    <div class="col mt-5">
+      <img src="{{url_for('static', filename='./images/logo.png')}}" class="mx-auto d-block" style="width: 500; height: 220">
+
+        <form action ="{{ url_for('classifiedResults') }}" method="post">
+            URL of Image to be Classified: <input type="text" name="URLtoClassify">
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+
+<br>
+
+
+</center>

@@ -1,0 +1,61 @@
+<div class="column">
+    <p style="font-family:courier;">Filter by style: </p>
+    <a href="http://127.0.0.1:5000/emoTops">
+    <img border="0" alt="emoTops" src="{{url_for('static', filename='./images/emostyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/urbanTops">
+    <img border="0" alt="urbanTops" src="{{url_for('static', filename='./images/urbanstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+     <a href="http://127.0.0.1:5000/vintageTops">
+    <img border="0" alt="vintageTops" src="{{url_for('static', filename='./images/vintagestyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/streetTops">
+    <img border="0" alt="streetTops" src="{{url_for('static', filename='./images/streetstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/retroTops">
+    <img border="0" alt="retroStyle" src="{{url_for('static', filename='./images/retrostyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/gothicTops">
+    <img border="0" alt="gothicTops" src="{{url_for('static', filename='./images/gothicstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <br>
+       <a href="http://127.0.0.1:5000/grungeTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/grungestyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/alternativeTops">
+    <img border="0" alt="alternativeTops" src="{{url_for('static', filename='./images/alternativestyle.png')}}" class="mx-auto d-block" style="width: 230px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/formalTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/formalstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/indieTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/indiestyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/athleticTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/athleticstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/pastelTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/pastelstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+    =<a href="http://127.0.0.1:5000/quirkyTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/quirkystyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+
+
+<p style="font-family:courier;"> All tops: </p>
+{% for i in search_results%}
+<br>
+    <img src="static/images/{{i}}.jpeg" alt="User Image" width="500" height="520">
+{% for i in search_results%}
+{% endfor %}
+{% set a = i %}
+{% set b = i | int%}
+<p class="monospace" style="color:#6495ED"> {{ showKeywords[b-1]}} </p>
+
+<style>
+
+.monospace {
+  font-family: "Lucida Console", Courier, monospace;
+}
+</style>
+{% endfor %}

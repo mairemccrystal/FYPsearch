@@ -1,34 +1,58 @@
-{% extends 'layout.html' %}
+<center>
 
-{% block body %}
-  <div class="col">
+ <div class="col">
 
-
-    <div class="col mt-5">
-      <img src="{{url_for('static', filename='./images/logo.png')}}" class="mx-auto d-block" style="width: 50%; height: 50%">
-
-    </div>
-
-    <form class="mt-5" name="search" action="/search_results">
-      <div class="col-6 mx-auto input-group">
-        <input type="text" class="form-control" name="search" placeholder="search...">
-        <button type="submit" class="btn btn-success">Search</button>
-      </div>
-    </form>
-  </div>
-
- <a href="http://127.0.0.1:5000/toClassify">
-    <img border="5" alt="toClassify" src="{{url_for('static', filename='./images/ClasifyImagePic.png')}}" class="mx-auto d-block" style="width: 200px; height: 100px; ">
+<div class="column">
+    <p style="font-family:courier;">Filter by style: </p>
+    <a href="http://127.0.0.1:5000/emoTrousers">
+    <img border="0" alt="emoTrousers" src="{{url_for('static', filename='./images/emostyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/urbanTrousers">
+    <img border="0" alt="urbanTrousers" src="{{url_for('static', filename='./images/urbanstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+     <a href="http://127.0.0.1:5000/vintageTrousers">
+    <img border="0" alt="vintageTrousers" src="{{url_for('static', filename='./images/vintagestyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/streetTops">
+    <img border="0" alt="streetTops" src="{{url_for('static', filename='./images/streetstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/retroTops">
+    <img border="0" alt="retroStyle" src="{{url_for('static', filename='./images/retrostyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/gothicTops">
+    <img border="0" alt="gothicTops" src="{{url_for('static', filename='./images/gothicstyle.png')}}" class="mx-auto d-block" style="width: 150px; height: 100px; ">
+    </a>
+      <br>
+       <a href="http://127.0.0.1:5000/grungeTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/grungestyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/alternativeTops">
+    <img border="0" alt="alternativeTops" src="{{url_for('static', filename='./images/alternativestyle.png')}}" class="mx-auto d-block" style="width: 230px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/formalTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/formalstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+       <a href="http://127.0.0.1:5000/indieTrousers">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/indiestyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/athleticTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/athleticstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+      <a href="http://127.0.0.1:5000/pastelTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/pastelstyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
+    </a>
+    <a href="http://127.0.0.1:5000/quirkyTops">
+    <img border="0" alt="urbantops" src="{{url_for('static', filename='./images/quirkystyle.png')}}" class="mx-auto d-block" style="width: 180px; height: 100px; ">
     </a>
 
-<br>
 
-<form action="/cols">
-    <div class="col mt-5">
-<label for="search"> Choose a colour:</label> </blockquote>
+ <p style="font-family:courier;">Filter by colour: </p>
+ <form action="{{ url_for('colourReturned') }}" method="post">
 
-<select id="search" name="colour">
-  <option style="background-color:white" value="white" action="/cols">White</option>
+<label for="colourInput"> Choose a colour:</label> </blockquote>
+
+<select id="colourInput" name="colourInput">
+    <option style="background-color:white" value="white" action="/cols">White</option>
     <option style="background-color:snow" value="snow" action="/cols">Snow</option>
     <option style="background-color:whitesmoke" value="whitesmoke" action="/cols">White Smoke</option>
     <option style="background-color:gainsboro" value="gainsboro" action="/cols">Gainsboro</option>
@@ -168,112 +192,29 @@
     <option style="background-color:lightpink" value="lightpink" action="/cols">Light Pink</option>
 
 
-
 </select>
 
-<input type="submit" value="Submit" formaction="/search_results?search=">
+ <button type="submit">Submit</button>
+    </form>
     </div>
-</form>
-
-    <div class="col mt-5">
-<form action="/cols">
-<label for="search">Choose a style preference:</label>
-
-<select id="style" name="search">
-    <option style="background-color:white" value="urban" action="/cols">Urban</option>
-    <option style="background-color:white" value="street,streetstyle" action="/cols">Street</option>
-    <option style="background-color:white" value="vintage" action="/cols">Vintage</option>
-    <option style="background-color:white" value="retro" action="/cols">Retro</option>
-    <option style="background-color:white" value="alternative" action="/cols">Alternative</option>
-    <option style="background-color:white" value="emo" action="/cols">Emo</option>
-    <option style="background-color:white" value="formal" action="/cols">Formal</option>
-    <option style="background-color:white" value="indie" action="/cols">Indie</option>
-    <option style="background-color:white" value="grunge" action="/cols">Grunge</option>
-    <option style="background-color:white" value="gothic" action="/cols">Gothic</option>
-     <option style="background-color:white" value="quirky" action="/cols">Quirky</option>
-    <option style="background-color:white" value="pastel" action="/cols">Pastel</option>
-    <option style="background-color:white" value="kawaii" action="/cols">Kawaii</option>
-      <option style="background-color:white" value="sporty" action="/cols">Athletic</option>
-</select>
-
-<input type="submit" value="Submit" formaction="/search_results?search=">
-    </div>
-</form>
 
 
-<h3>Search by Garment</h3>
 
 
+<p style="font-family:courier;"> All trousers: </p>
+{% for i in search_results%}
 <br>
+    <img src="static/images/{{i}}.jpeg" alt="User Image" width="500" height="520">
+{% for i in search_results%}
+{% endfor %}
+{% set a = i %}
+{% set b = i | int%}
+<p class="monospace" style="color:#6495ED"> {{ showKeywords[b-1]}} </p>
 
-<div class="col mt-9">
-<div class="row">
+<style>
 
-  <div class="column">
-    <a href="http://127.0.0.1:5000/tops">
-    <img border="0" alt="T-Shirts" src="{{url_for('static', filename='./images/tshirt.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px; ">
-    </a>
-  </div>
-  <div class="column">
-    <a href="http://127.0.0.1:5000/trousers">
-    <img border="0" alt="Trousers" src="{{url_for('static', filename='./images/jeans.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/pullovers">
-    <img border="0" alt="Pullover" src="{{url_for('static', filename='./images/jumper.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-<div class="column">
-    <a href="http://127.0.0.1:5000/dresses">
-    <img border="0" alt="Dress" src="{{url_for('static', filename='./images/dress.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/coats">
-    <img border="0" alt="Coat" src="{{url_for('static', filename='./images/coat.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/sandals">
-    <img border="0" alt="Sandal" src="{{url_for('static', filename='./images/sandal.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/shirts">
-    <img border="0" alt="Shirt" src="{{url_for('static', filename='./images/shirt.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/sneakers">
-    <img border="0" alt="Sneaker" src="{{url_for('static', filename='./images/sneakers.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/bags">
-    <img border="0" alt="Bag" src="{{url_for('static', filename='./images/bag.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-    <div class="column">
-    <a href="http://127.0.0.1:5000/boots">
-    <img border="0" alt="Dress" src="{{url_for('static', filename='./images/boots.png')}}" class="mx-auto d-block" style="width: 150px; height: 150px">
-    </a>
-  </div>
-
-    <br>
-    <br>
-     </div>
-     <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-</div>
-
-
-
-
-
-
-
-
-
-
-{% endblock %}
-
+.monospace {
+  font-family: "Lucida Console", Courier, monospace;
+}
+</style>
+{% endfor %}
