@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<h3>Search by County</h3>
+
+
+<div class="col mt-50">
+<div class="row">
+
+  <div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=derry">
+    <img border="0" alt="derry" src="{{url_for('static', filename='./images/derry.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px; ">
+    </a>
+  </div>
+  <div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=antrim">
+    <img border="0" alt="antrim" src="{{url_for('static', filename='./images/antrim.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px">
+    </a>
+  </div>
+    <div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=armagh">
+    <img border="0" alt="armagh" src="{{url_for('static', filename='./images/armagh.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px">
+    </a>
+  </div>
+    <div class="row">
+<div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=fermanagh">
+    <img border="0" alt="fermanagh" src="{{url_for('static', filename='./images/fermanagh.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px">
+    </a>
+  </div>
+    <div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=down">
+    <img border="0" alt="down" src="{{url_for('static', filename='./images/down.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px">
+    </a>
+  </div>
+    <div class="column">
+    <a href="http://127.0.0.1:5000/search_results?search=tyrone">
+    <img border="0" alt="Sandal" src="{{url_for('static', filename='./images/tyrone.png')}}" class="mx-auto d-block" style="width: 450px; height: 400px">
+    </a>
+  </div>
+
+
+    <br>
+    <br>
+     </div>
+
+    </div>
+</div>
+</form>
+
+
+
+{% endblock %}
+
+</center>

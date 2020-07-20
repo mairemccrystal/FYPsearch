@@ -1,5 +1,4 @@
 {% extends 'layout.html' %}
-
 {% block body %}
   <div class="col">
 
@@ -9,6 +8,7 @@
 
     </div>
 
+
     <form class="mt-5" name="search" action="/search_results">
       <div class="col-6 mx-auto input-group">
         <input type="text" class="form-control" name="search" placeholder="search...">
@@ -17,18 +17,22 @@
     </form>
   </div>
 
+<br><br>
  <a href="http://127.0.0.1:5000/toClassify">
-    <img border="5" alt="toClassify" src="{{url_for('static', filename='./images/ClasifyImagePic.png')}}" class="mx-auto d-block" style="width: 200px; height: 100px; ">
+    <img border="5" alt="toClassify" src="{{url_for('static', filename='./images/ClasifyImagePic1.png')}}" class="mx-auto d-block" style="width: 445px; height: 55px; ">
     </a>
 
-<br>
+ <a href="http://127.0.0.1:5000/locationSearch">
+    <img border="5" alt="locationSearch" src="{{url_for('static', filename='./images/searchLocation.png')}}" class="mx-auto d-block" style="width: 449px; height: 50px; ">
+    </a>
+
 
 <form action="/cols">
-    <div class="col mt-5">
+    <div class="col mt-4">
 <label for="search"> Choose a colour:</label> </blockquote>
 
-<select id="search" name="colour">
-  <option style="background-color:white" value="white" action="/cols">White</option>
+<select id="search" name="search">
+    <option style="background-color:white" value="white" action="/cols">White</option>
     <option style="background-color:snow" value="snow" action="/cols">Snow</option>
     <option style="background-color:whitesmoke" value="whitesmoke" action="/cols">White Smoke</option>
     <option style="background-color:gainsboro" value="gainsboro" action="/cols">Gainsboro</option>
@@ -168,14 +172,13 @@
     <option style="background-color:lightpink" value="lightpink" action="/cols">Light Pink</option>
 
 
-
 </select>
 
 <input type="submit" value="Submit" formaction="/search_results?search=">
     </div>
 </form>
 
-    <div class="col mt-5">
+    <div class="col mt-4">
 <form action="/cols">
 <label for="search">Choose a style preference:</label>
 
@@ -187,13 +190,43 @@
     <option style="background-color:white" value="alternative" action="/cols">Alternative</option>
     <option style="background-color:white" value="emo" action="/cols">Emo</option>
     <option style="background-color:white" value="formal" action="/cols">Formal</option>
-    <option style="background-color:white" value="indie" action="/cols">Indie</option>
     <option style="background-color:white" value="grunge" action="/cols">Grunge</option>
     <option style="background-color:white" value="gothic" action="/cols">Gothic</option>
-     <option style="background-color:white" value="quirky" action="/cols">Quirky</option>
-    <option style="background-color:white" value="pastel" action="/cols">Pastel</option>
-    <option style="background-color:white" value="kawaii" action="/cols">Kawaii</option>
-      <option style="background-color:white" value="sporty" action="/cols">Athletic</option>
+</select>
+
+    <input type="submit" value="Submit" formaction="/search_results?search=">
+    </div>
+</form>
+
+
+        <div class="col mt-4">
+<form action="/cols">
+<label for="search">Choose a season
+<select id="season" name="search">
+    <option style="background-color:springGreen" value="spring" action="/cols">Spring</option>
+    <option style="background-color:orange" value="summer" action="/cols">Summer</option>
+    <option style="background-color:crimson" value="autumn,fall" action="/cols">Autumn / Fall</option>
+    <option style="background-color:mediumtur" value="winter" action="/cols">Winter</option>
+</select>
+
+
+<input type="submit" value="Submit" formaction="/search_results?search=">
+    </div>
+</form>
+
+ <div class="col mt-4">
+<form action="/cols">
+<label for="search">Choose an event/occasion type:</label>
+
+<select id="activity" name="search">
+    <option style="background-color:white" value="gym" action="/cols">Gym</option>
+    <option style="background-color:white" value="office, workwear" action="/cols">Office</option>
+    <option style="background-color:white" value="dinner, bar" action="/cols">Dinner</option>
+    <option style="background-color:white" value="nightclub, nightout, bar" action="/cols">Night Out</option>
+    <option style="background-color:white" value="formal, occassion" action="/cols">Formal Event</option>
+    <option style="background-color:white" value="sports, sporty, athletic" action="/cols">Sporting Event</option>
+    <option style="background-color:white" value="everyday, casual" action="/cols">Everyday Attire</option>
+    <option style="background-color:white" value="interview" action="/cols">Interview</option>
 </select>
 
 <input type="submit" value="Submit" formaction="/search_results?search=">
@@ -270,8 +303,30 @@
 
 
 
+</form>
+
+    <div class="col mt-5">
+<form action="/cols">
+<label for="search">Choose a style preference:</label>
+
+<select id="colour" name="search">
+    <option style="background-color:white" value="Pink+1" action="/cols">Pink</option>
 
 
+</select>
+
+    <select id="styleChoice">
+    <option style="background-color:white" value="blue" action="/cols">Trousers</option>
+</select>
+
+
+
+
+<input type="submit" value="Submit" formaction="/search_results?"  >
+
+
+    </div>
+</form>
 
 
 
