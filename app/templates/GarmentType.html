@@ -184,7 +184,7 @@
 
 <select id="style" name="search">
     <option style="background-color:white" value="urban" action="/cols">Urban</option>
-    <option style="background-color:white" value="street,streetstyle" action="/cols">Street</option>
+    <option style="background-color:white" value="street" action="/cols">Street</option>
     <option style="background-color:white" value="vintage" action="/cols">Vintage</option>
     <option style="background-color:white" value="retro" action="/cols">Retro</option>
     <option style="background-color:white" value="alternative" action="/cols">Alternative</option>
@@ -192,6 +192,8 @@
     <option style="background-color:white" value="formal" action="/cols">Formal</option>
     <option style="background-color:white" value="grunge" action="/cols">Grunge</option>
     <option style="background-color:white" value="gothic" action="/cols">Gothic</option>
+    <option style="background-color:white" value="indie" action="/cols">Indie</option>
+    <option style="background-color:white" value="Bohemian" action="/cols">Bohemian</option>
 </select>
 
     <input type="submit" value="Submit" formaction="/search_results?search=">
@@ -205,7 +207,7 @@
 <select id="season" name="search">
     <option style="background-color:springGreen" value="spring" action="/cols">Spring</option>
     <option style="background-color:orange" value="summer" action="/cols">Summer</option>
-    <option style="background-color:crimson" value="autumn,fall" action="/cols">Autumn / Fall</option>
+    <option style="background-color:crimson" value="autumn" action="/cols">Autumn / Fall</option>
     <option style="background-color:mediumtur" value="winter" action="/cols">Winter</option>
 </select>
 
@@ -220,12 +222,14 @@
 
 <select id="activity" name="search">
     <option style="background-color:white" value="gym" action="/cols">Gym</option>
-    <option style="background-color:white" value="office, workwear" action="/cols">Office</option>
-    <option style="background-color:white" value="dinner, bar" action="/cols">Dinner</option>
-    <option style="background-color:white" value="nightclub, nightout, bar" action="/cols">Night Out</option>
-    <option style="background-color:white" value="formal, occassion" action="/cols">Formal Event</option>
-    <option style="background-color:white" value="sports, sporty, athletic" action="/cols">Sporting Event</option>
-    <option style="background-color:white" value="everyday, casual" action="/cols">Everyday Attire</option>
+    <option style="background-color:white" value="office" action="/cols">Office</option>
+    <option style="background-color:white" value="dinner" action="/cols">Dinner</option>
+    <option style="background-color:white" value="night out" action="/cols">Night Out (Bar)</option>
+    <option style="background-color:white" value="nightclub" action="/cols">Night Out (Nightclub)</option>
+    <option style="background-color:white" value="formal" action="/cols">Formal Event</option>
+    <option style="background-color:white" value="sports" action="/cols">Sporting Event</option>
+    <option style="background-color:white" value="everyday" action="/cols">Everyday Attire</option>
+     <option style="background-color:white" value="casual" action="/cols">Casual</option>
     <option style="background-color:white" value="interview" action="/cols">Interview</option>
 </select>
 
@@ -305,19 +309,8 @@
 
 </form>
 
-    <div class="col mt-5">
-<form action="/cols">
-<label for="search">Choose a style preference:</label>
-
-<select id="colour" name="search">
-    <option style="background-color:white" value="Pink+1" action="/cols">Pink</option>
 
 
-</select>
-
-    <select id="styleChoice">
-    <option style="background-color:white" value="blue" action="/cols">Trousers</option>
-</select>
 
 
 

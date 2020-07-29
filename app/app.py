@@ -25,6 +25,32 @@ CORS(app)
 #
 # Routes
 #
+
+@app.route('/tester')
+def tester():
+    connect_uri = 'mongodb+srv://admin:admin@cluster0-zgcvy.mongodb.net/test?retryWrites=true&w=majority'
+    client = pymongo.MongoClient(connect_uri)
+
+    # create db client
+    db = client.stylesearch
+    db.test.createIndex({"Keywords.$**": 1})
+    #db.test.createIndex({'Keywords': "$text"})
+    #db.test.create_index({"Keywords": 1, "$**", "$text"})
+    #db.test.create_index([("Keywords": 1, '$**', 'text')])
+    #db.test.create_index(
+
+    #resp = db.test.create_index([("Keywords", -1)])
+    #print("index response:", resp)
+
+    search_results = db.test.find({ "Keywords" : "three" })
+
+    return str(search_results)
+
+    #return render_template('search.html')
+    #return render_template('testingJune.html')
+    #return render_template('GarmentType.html')
+    #return render_template('2searchbars.html')
+
 @app.route('/')
 def home():
     if 'search' in request.args:
@@ -41,8 +67,15 @@ def home():
 #
  #           }
   #      )
+        #search_results = db.TestStyle.find({'$text': {'$search': '"\" "' + request.args.get('search') + '\""'}})
 
-        search_results = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
+        #query = db.TestStyle.find({'$text': {'$search': '"\" "' + request.args.get('search') + '\""'}},
+         #                         {'$text': {'$search': request.args.get('search')}})
+        #search_results =  db.TestStyle.find({'$text': {'$search': '"\" "' + request.args.get('search') + '\""' + request.args.get('search')}})
+        search_results = db.TestStyle.find({'$text': {'$search': request.args.get('search') + '' + '"\" "' + request.args.get('search') + '\""'}})
+
+
+        #search_results = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
 
 
         for entry in search_results:
@@ -74,10 +107,17 @@ def search_results():
         #)
 
 
-        query = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
-        #query = db.TestStyle.find({'$text': {'$search': 'pink top'}},{'score':{'$meta': 'textScore'}})
-       # query = db.TestStyle.find({'$text': {'$search': "Pink top"}}, {'score': {'$meta': 'textScore'}})
+        #query = db.TestStyle.find({'$text': {'$search': request.args.get('search')}})
+        #query = db.TestStyle.find( { '$text': { '$search': "\" grunge\"" } } )
+
+        #query = db.TestStyle.find({'$text': {'$search': '"\" "' + request.args.get('search') + '\""'}})
+
+
+        #query = db.TestStyle.find({'$text':{'$search' : "\"pink top\""}})
+        #query = db.TestStyle.find({'$text': {'$search': request.args.get('search') + '"\" "' + request.args.get('search') + '\""' + request.args.get('search') }})
+        query = db.TestStyle.find({'$text': {'$search': '"\" "' + request.args.get('search') + '\""' + ' '+ request.args.get('search') }})
         ids = query.distinct("ID")
+
         search_results = []
 
         #TESTING ADDING KEYWORDS
